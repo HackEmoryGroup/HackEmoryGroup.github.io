@@ -1,1 +1,2 @@
-# website animations testing
+# Official Website of HackEmory
+# https://HackEmoryGroup.github.io
