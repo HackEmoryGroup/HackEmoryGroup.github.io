@@ -115,7 +115,7 @@
 /* Values
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .values {
-  background-image: url("images/servers.png");
+  background-image: url('../images/servers.png');
   background-size: cover;
   color: #fff;
   padding-bottom: 5rem;
