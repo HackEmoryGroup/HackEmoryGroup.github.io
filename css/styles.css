@@ -38,11 +38,12 @@
 }
 .content {
     flex: 1;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 .footer {
 background-color: #E94F37;
-padding: 20px;
+padding-top: 20px;
+text-align: center;
 }
 /*.footer {
     position: absolute;
