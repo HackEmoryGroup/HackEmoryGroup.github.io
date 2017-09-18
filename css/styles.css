@@ -142,11 +142,11 @@
 /* Nav Bar Configuration
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 nav {
-  background-color: #000000;
+  background-color: #4D6CFA;
   border: 1px solid #dedede;
   border-radius: 4px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-  color: #888;
+  color: #E94F37;
   display: block;
   margin: 8px 22px 8px 22px;
   overflow: hidden;
@@ -187,7 +187,7 @@ nav {
       }
 
       nav > ul > li > a {
-        color: #aaa;
+        color: #E94F37;
         display: block;
         line-height: 56px;
         padding: 0 24px;
