@@ -28,13 +28,23 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 .column,
 .columns {
   width: 100%;
   float: left;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
 .footer {
+background-color: #E94F37;
+padding: 20px;
+}
+/*.footer {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -43,7 +53,7 @@
     height: 6rem;
     background-color: #E94F37;
     text-align: center;
-  }
+  }*/
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
@@ -268,19 +278,21 @@ nav {
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%;
+}
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #e5e5e5;
-  background-color: #111116; }
-/**,
-*:before,
-*:after {
-    box-sizing: inherit;
- }*/
+  background-color: #111116;
+}
+
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
