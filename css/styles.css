@@ -275,6 +275,11 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #e5e5e5;
   background-color: #111116; }
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+ }
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
