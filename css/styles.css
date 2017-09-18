@@ -129,13 +129,13 @@
 
 /* Values
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.values1 {
+.valuesone {
   background-image: url('../images/servers.png');
   background-size: cover;
   color: #fff;
   padding-bottom: 5rem;
 }
-.values2 {
+.valuestwo {
   background-image: url('../images/atl.png');
   background-size: cover;
   color: #fff;
