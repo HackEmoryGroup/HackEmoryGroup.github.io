@@ -174,7 +174,7 @@ nav {
   border: 1px solid #dedede;
   border-radius: 4px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-  color: #E94F37;
+  color: #242BF4;
   display: block;
   margin: 8px 22px 8px 22px;
   overflow: hidden;
@@ -313,7 +313,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 @media (min-width: 550px) {
   h1 {
       font-size: 5.5rem;
-      color: #4D6CFA;
+      color: #242BF4;
       font-weight: bold;
   }
   h2 {
@@ -422,8 +422,8 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #fff;
-  border: 1px solid #D1D1D1;
+  background-color: #5E0035;
+  border: 1px solid #DEA6AF;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; }
