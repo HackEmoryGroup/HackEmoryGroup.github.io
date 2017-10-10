@@ -287,7 +287,7 @@ color: #e5e5e5;
    */
   #menu
   {
-    position: relative;
+    position: fixed;
     width: 200px;
     margin: -100px 0 0 -50px;
     padding: 50px;
@@ -442,8 +442,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
-  background-color: #5E0035;
-  border-color: #5E0035; }
+  background-color: #BB52D1;
+  border-color: #BB52D1; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -455,8 +455,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #BB52D1;
-  border-color: #BB52D1; }
+  background-color: #5E0035;
+  border-color: #5E0035; }
 
 
 /* Forms
