@@ -154,6 +154,12 @@ color: #e5e5e5;
   color: #fff;
   padding-bottom: 5rem;
 }
+.valuesthree {
+  background-image: url('../images/meeting.png');
+  background-size: cover;
+  color: #fff;
+  padding-bottom: 5rem;
+}
 /*.value-multiplier {
   margin-bottom: .5rem;
   color: #11DFC7;
@@ -281,7 +287,7 @@ color: #e5e5e5;
    */
   #menu
   {
-    position: absolute;
+    position: relative;
     width: 200px;
     margin: -100px 0 0 -50px;
     padding: 50px;
@@ -353,7 +359,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 @media (min-width: 550px) {
   h1 {
       font-size: 5.5rem;
-      color: #242BF4;
+      color: #BB52D1;
       font-weight: bold;
       font-family: 'Righteous', cursive;
   }
@@ -365,7 +371,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   }
   h3 {
       font-size: 3.6rem;
-      color: #DEA6AF;
+      color: #E94F37;
       font-family: 'Righteous', cursive;
   }
   h4 {
@@ -436,8 +442,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
+  background-color: #5E0035;
+  border-color: #5E0035; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -449,8 +455,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  background-color: #BB52D1;
+  border-color: #BB52D1; }
 
 
 /* Forms
@@ -466,8 +472,8 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #5E0035;
-  border: 1px solid #DEA6AF;
+  background-color: #383838;
+  border: 1px solid #BB52D1;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; }
@@ -496,7 +502,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid #E94F37;
   outline: 0; }
 label,
 legend {
