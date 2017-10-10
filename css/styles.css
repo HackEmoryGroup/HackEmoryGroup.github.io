@@ -132,7 +132,6 @@ color: #e5e5e5;
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .section {
   padding: 8rem 0 7rem;
-  text-align: center;
 }
 .section-heading,
 .section-description {
@@ -151,6 +150,7 @@ color: #e5e5e5;
 .valuestwo {
   background-image: url('../images/atl.png');
   background-size: cover;
+  text-align: center;
   color: #fff;
   padding-bottom: 5rem;
 }
