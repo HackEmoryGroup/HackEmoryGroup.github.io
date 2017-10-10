@@ -192,7 +192,7 @@ color: #e5e5e5;
   #menuToggle
   {
     display: block;
-    position: fixed;
+    position: relative;
     top: 50px;
     left: 50px;
 
@@ -228,7 +228,7 @@ color: #e5e5e5;
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    position: fixed;
+    position: relative;
 
     background: #E94F37;
     border-radius: 3px;
@@ -287,7 +287,7 @@ color: #e5e5e5;
    */
   #menu
   {
-    position: fixed;
+    position: absolute;
     width: 200px;
     margin: -100px 0 0 -50px;
     padding: 50px;
