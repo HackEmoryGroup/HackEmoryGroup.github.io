@@ -160,6 +160,12 @@ color: #e5e5e5;
   color: #fff;
   padding-bottom: 5rem;
 }
+.valuesfour {
+  background-image: url('../images/mobo.png');
+  background-size: cover;
+  color: #fff;
+  padding-bottom: 5rem;
+}
 /*.value-multiplier {
   margin-bottom: .5rem;
   color: #11DFC7;
