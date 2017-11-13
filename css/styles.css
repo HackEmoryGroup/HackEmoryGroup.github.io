@@ -153,18 +153,30 @@ color: #e5e5e5;
   text-align: center;
   color: #fff;
   padding-bottom: 5rem;
+  border-top: 5px solid #F6A732;
+  border-bottom: 5px solid #F6A732;
 }
 .valuesthree {
   background-image: url('../images/meeting.png');
   background-size: cover;
   color: #fff;
   padding-bottom: 5rem;
+  border-top: 5px solid #F6A732;
 }
 .valuesfour {
   background-image: url('../images/mobo.png');
   background-size: cover;
   color: #fff;
   padding-bottom: 5rem;
+  border-top: 5px solid #F6A732;
+  border-bottom: 5px solid #F6A732;
+}
+.valuesfive {
+  background-size: cover;
+  background-color: #fff;
+  padding-bottom: 5rem;
+  border-top: 5px solid #F6A732;
+  border-bottom: 5px solid #F6A732;
 }
 /*.value-multiplier {
   margin-bottom: .5rem;
@@ -365,7 +377,8 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 @media (min-width: 550px) {
   h1 {
       font-size: 5.5rem;
-      color: #E94F37;
+      /*color: #E94F37;*/
+      color: #F6A732;
       font-weight: bold;
       font-family: 'Righteous', cursive;
   }
