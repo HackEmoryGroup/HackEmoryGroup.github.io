@@ -1,14 +1,18 @@
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+
 
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Grid
-- Sections
-- Values
-- Menu
 - Base Styles
 - Typography
-- Project Cards
-- Nav Bar
 - Links
 - Buttons
 - Forms
@@ -30,25 +34,12 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 .column,
 .columns {
   width: 100%;
   float: left;
-  box-sizing: border-box;
-}
-.content {
-    flex: 1;
-    /*padding-bottom: 2%;*/
-}
-.footer {
-background-color: #1A9988;
-/*background-color: #3A4660;*/
-padding-top: 2%;
-text-align: center;
-color: #e9edee;
-}
+  box-sizing: border-box; }
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
@@ -118,48 +109,116 @@ color: #e9edee;
 
   .offset-by-one-half.column,
   .offset-by-one-half.columns     { margin-left: 52%; }
+
 }
 
-/* Sections
+
+/* Nav Bar Configuration
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.section {
-  padding: 8rem 0 7rem;
-  text-align: center;
-}
-.section-heading,
-.section-description {
-  margin-bottom: 1.2rem;
-}
-.tiles {
-    text-align: left;
+nav {
+  background-color: #000000;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+  color: #888;
+  display: block;
+  margin: 8px 22px 8px 22px;
+  overflow: hidden;
+  width: 90%;
+  text-align: left;
 }
 
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
 
-/* Values
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.valuesone {
-  background-image: url('../images/servers.png');
-  background-size: cover;
-  color: #fff;
-  padding-bottom: 5rem;
-}
-.valuestwo {
-  background-image: url('../images/atl.png');
-  background-size: cover;
-  color: #fff;
-  padding-bottom: 5rem;
-}
-/*.value-multiplier {
-  margin-bottom: .5rem;
-  color: #11DFC7;
-}
-.value-heading {
-  margin-bottom: .3rem;
-}
-.value-description {
-  opacity: .8;
-  font-weight: 300;
-}*/
+    nav ul li {
+      display: inline-block;
+      list-style-type: none;
+
+      -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+      nav > ul > li > a > .caret {
+        border-top: 4px solid #aaa;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        content: "";
+        display: inline-block;
+        height: 0;
+        width: 0;
+        vertical-align: middle;
+
+        -webkit-transition: color 0.1s linear;
+          -moz-transition: color 0.1s linear;
+        -o-transition: color 0.1s linear;
+          transition: color 0.1s linear;
+      }
+
+      nav > ul > li > a {
+        color: #aaa;
+        display: block;
+        line-height: 56px;
+        padding: 0 24px;
+        text-decoration: none;
+      }
+
+        nav > ul > li:hover {
+          background-color: rgb( 40, 44, 47 );
+        }
+
+        nav > ul > li:hover > a {
+          color: rgb( 255, 255, 255 );
+        }
+
+        nav > ul > li:hover > a > .caret {
+          border-top-color: rgb( 255, 255, 255 );
+        }
+
+      nav > ul > li > div {
+        background-color: rgb( 40, 44, 47 );
+        border-top: 0;
+        border-radius: 0 0 4px 4px;
+        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+        display: none;
+        margin: 0;
+        opacity: 0;
+        position: absolute;
+        width: 165px;
+        visibility: hidden;
+
+        -webkit-transiton: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+      }
+
+        nav > ul > li:hover > div {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+
+          nav > ul > li > div ul > li {
+            display: block;
+          }
+
+            nav > ul > li > div ul > li > a {
+              color: #fff;
+              display: block;
+              padding: 12px 24px;
+              text-decoration: none;
+            }
+
+              nav > ul > li > div ul > li:hover > a {
+                background-color: rgba( 255, 255, 255, 0.1);
+              }
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -167,24 +226,14 @@ color: #e9edee;
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-  font-size: 62.5%;
-  height: 100%;
-}
+  font-size: 62.5%; }
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  /* font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
-  /* font-family: 'Roboto Mono', monospace; */
-  font-family: 'PT Serif', serif;
-  color: #1a1a1a;
-  background-color: #e9edee;
-  padding-top:70px;
-}
-
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #e5e5e5;
+  background-color: #111116; }
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -202,26 +251,19 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 /* Larger than phablet */
 @media (min-width: 550px) {
   h1 {
-      font-family: 'Raleway', sans-serif;
       font-size: 5.5rem;
-      font-weight: bold;
-      color: #1A9988
-
-      /* color: #F6A732; */
+      color: #2EB790;
   }
   h2 {
       font-size: 4.2rem;
-      color: #F6A732;
-      font-weight: bold;
-      font-family: 'Raleway', sans-serif;
+      color: #2EB790;
   }
   h3 {
       font-size: 3.6rem;
-      font-family: 'Raleway', sans-serif;
   }
   h4 {
       font-size: 3.0rem;
-      font-family: 'Raleway', sans-serif;
+      color: #248399;
   }
   h5 {
       font-size: 2.4rem;
@@ -233,156 +275,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 p {
   margin-top: 0; }
-
-.wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.particule {
-    position: absolute;
-}
-
-
-/* Nav Bar
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-a, a:hover{
-	color: inherit;
-	text-decoration: none;
-}
-.container{
-width:100%;
-max-width:640px;
-margin:0;
-padding: 0;
-}
-.siteNav-logo {
-    display: block;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 39px;
-    height: 39px;
-    margin: 0;
-    padding: 0;
-    z-index: 700;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 900;
-    font-size: 30px;
-    text-align: center;
-    border: 0;
-    opacity: 1;
-    -webkit-transition: opacity 200ms linear;
-    transition: opacity 200ms linear;
-}
-.navTabs--metabar{
-	display: block;
-	background-color: #fafafa;
-    border-bottom: 1px solid #f0f0f0;
-    border-top: 1px solid #f0f0f0;
-    margin-top:-5px;
-    padding:0;
-}
-
-.navTabs-item {
-    display: inline-block;
-    margin: 0;
-    margin-right:10px;
-    padding: 0;
-}
-
-.navTabs-item:last-child {
-    margin-right: 0;
-}
-
-.navTabs {
-    margin: 0 auto;
-    width: auto;
-    white-space: nowrap;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-.navTabs::-webkit-scrollbar {
-    display: none;
-}
-.navTabs-list{
-	margin-bottom: 0;
-  margin-left: 0px;
-  padding-left:25px;
-}
-
-
-.navTabs-anchor {
-    letter-spacing: -0.02em;
-    font-style: normal;
-    display: inline-block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
-
-}
-
-.navTabs-anchor:focus {
-    outline: 0;
-}
-
-
-.navTabs--metabar .navTabs-item.is-active .navTabs-anchor {
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.8);
-	padding-bottom: 16px;
-	margin-top:0;
-	margin-bottom: 0;
-    border-bottom: 2px rgba(0, 0, 0, 0.8) solid;
-
-}
-
-
-
-@media screen and (min-width: 1100px) {
-   	.navTabs--metabar{
-   		position: absolute;
-   		width:100%;
-        top: 0;
-        left: 0;
-        padding:0;
-        margin:0 auto;
-        border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
-		background-color: rgba(255,255,255,0.9);
-   	}
-    .navTabs {
-        position: absolute;
-        display: inline-block;
-        top: 0px;
-        left: 0px;
-        padding:0;
-        margin:0 auto;
-        width: 100%;
-        border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
-		   background-color: rgba(255,255,255,0.9);
-
-    }
-
-    .navTabs--metabar .navTabs-item.is-active .navTabs-anchor {
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.8);
-    padding-top: 10px;
-	padding-bottom: 20px;
-	margin-top:0;
-	margin-bottom: 0;
-    border-bottom: 2px rgba(0, 0, 0, 0.8) solid;
-
-	}
-  .container{
-    margin:0 auto;
-  }
-
-}
 
 
 /* Links
@@ -403,7 +295,7 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #1a9988;
+  color: #555;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -466,8 +358,8 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #5E0035;
-  border: 1px solid #DEA6AF;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; }
@@ -517,7 +409,7 @@ label > .label-body {
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* ul {
+ul {
   list-style: circle inside; }
 ol {
   list-style: decimal inside; }
@@ -531,7 +423,7 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 li {
-  margin-bottom: 1rem; } */
+  margin-bottom: 1rem; }
 
 
 /* Code
@@ -541,9 +433,8 @@ code {
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
-  background-color: #161412;
-  color: #e9edee;
-  border: 4px solid #F6A732;
+  background: #111116;
+  border: 1px solid #E1E1E1;
   border-radius: 4px; }
 pre > code {
   display: block;

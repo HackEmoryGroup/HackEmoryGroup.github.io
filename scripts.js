@@ -1,19 +1,21 @@
-var lineDrawing1 = anime({
-  targets: '#lineDrawing .lines path',
-  strokeDashoffset: [anime.setDashoffset, 0],
-  easing: 'easeInOutSine',
-  duration: 2500,
-  delay: function(el, i) { return i * 250 },
-  direction: 'alternate',
-  loop: true
+$("button,a").click(function(){
+  $("body").toggleClass("menu-push");
+  $("nav").toggleClass("menu-open");
 });
 
-var lineDrawing2 = anime({
-  targets: '#lineDrawing2 .lines path',
-  strokeDashoffset: [anime.setDashoffset, 0],
-  easing: 'easeInOutSine',
-  duration: 1000,
-  delay: function(el, i) { return i * 250 },
-  direction: 'alternate',
-  loop: true
+// Slow Scroll
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+      }
+    }
+  });
 });

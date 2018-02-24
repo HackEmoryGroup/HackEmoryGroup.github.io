@@ -1,2 +1,2 @@
-# Official Website of HackEmory
-# https://HackEmoryGroup.github.io
+# Blockchain Event
+# https://samlarson.github.io/Blockchain
