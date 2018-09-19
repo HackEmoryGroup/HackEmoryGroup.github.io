@@ -106,7 +106,7 @@
 
           means = [xx.mean(), yy.mean()]
           stds = [xx.std() / 3, yy.std() / 3]
-          corr = 0.8  # correlation
+          corr = np.random.uniform(0.5, 0.9)
           covs = [[stds[0] ** 2, stds[0] * stds[1] * corr],
                   [stds[0] * stds[1] * corr, stds[1] ** 2]]
 
@@ -124,8 +124,6 @@
 
 <h3>lin_reg.py</h3>
 <pre><code>
-  import numpy as np
-  import pandas as pd
   import seaborn as sb
   import statsmodels.api as sm
   import matplotlib.pyplot as plt
@@ -156,6 +154,55 @@
   new = Create().uniform_correlated()
   ModelType().LinReg().linear_regression(new)
 </code></pre>
+
+
+<h3>gmm.py</h3>
+<pre><code>
+  import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()
+import numpy as np
+from sklearn.mixture import GaussianMixture
+
+# Define simple gaussian
+def gauss_function(x, amp, x0, sigma):
+    return amp * np.exp(-(x - x0) ** 2. / (2. * sigma ** 2.))
+
+# Generate sample from three gaussian distributions
+samples = np.random.normal(-0.45, 0.4, 2500)
+samples = np.append(samples, np.random.normal(-0.5, 0.17, 3000))
+samples = np.append(samples, np.random.normal(0.2, 0.47, 5500))
+
+# Fit GMM
+gmm = GaussianMixture(n_components=3, covariance_type="full", tol=0.001)
+gmm = gmm.fit(X=np.expand_dims(samples, 1))
+
+# Evaluate GMM
+gmm_x = np.linspace(-2, 1.5, 5000)
+gmm_y = np.exp(gmm.score_samples(gmm_x.reshape(-1, 1)))
+
+# Construct function manually as sum of gaussians
+gmm_y_sum = np.full_like(gmm_x, fill_value=0, dtype=np.float32)
+for m, c, w in zip(gmm.means_.ravel(), gmm.covariances_.ravel(),
+               gmm.weights_.ravel()):
+    gauss = gauss_function(x=gmm_x, amp=1, x0=m, sigma=np.sqrt(c))
+    gmm_y_sum += gauss / np.trapz(gauss, gmm_x) * w
+
+# Make regular histogram
+fig, ax = plt.subplots(nrows=1, ncols=1, figsize=[8, 5])
+ax.hist(samples, bins=50, normed=True, alpha=0.5, color="#0070FF")
+ax.plot(gmm_x, gmm_y, color="crimson", lw=4, label="GMM")
+ax.plot(gmm_x, gmm_y_sum, color="black", lw=4, label="gauss_sum",
+        linestyle="dashed")
+
+# Annotate diagram
+ax.set_ylabel("Probability Density")
+ax.set_xlabel("Arbitrary Units")
+
+# Make legend
+plt.legend()
+# Display graph
+plt.show()
+</code></pre>
 </div>
 
 
@@ -164,16 +211,12 @@
 <div class="twelve columns" style="margin-top: 3%">
 <h2 style="text-align: center">Resources</h2>
 <h3>API's</h3>
-<p><a href="https://www.coindesk.com/api/">Here</a>
-    is a developer API from coindesk</p>
-<p><a href="https://blockchain.info/api">Here</a>
-    is a developer API from blockchain.info</p>
-<p><a href="https://developers.coinbase.com/">Here</a>
-    is a tutorial from coinbase on use of their API</p>
-<p><a href="https://bitvol.info/">Here</a>
-    is a bitcoin volatility index.</p>
-<p><a href="https://bitvol.info/">Here</a>
-    is a website that tracks market info on bitcoin.</p>
+<p><a href="http://scikit-learn.org/stable/modules/classes.html">Here</a>
+    is the API documentation for scikit-learn</p>
+<p><a href="http://www.acooke.org/random.pdf">Here</a>
+    is a paper that describes how to accurately simulate random correlated data</p>
+<p><a href="https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12">Here</a>
+    is a decent article series that provides an overview of the ML landscape</p>
 
 </div>
 </div>
