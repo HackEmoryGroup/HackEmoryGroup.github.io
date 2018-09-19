@@ -31,13 +31,13 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/altFavicon.png">
+  <link rel="icon" type="image/png" href="images/newFavicon.png">
 
 </head>
 <body>
 
 
-<div class="metabar">
+<!-- <div class="metabar">
         <div class="siteNav-logo">HackEmory</div>
      </div>
      <div class="navTabs--metabar">
@@ -51,7 +51,7 @@
             </ul>
         </div>
     </nav>
-</div>
+</div> -->
 
 
 
@@ -61,9 +61,9 @@
 
     <div class="container" id="header">
         <div class="row">
-            <div class="twelve columns" style = "margin-top: 3%">
-                <h1 style="font-size: 5.8rem; text-align: center">Hacking the Blockchain</h1>
-                <h4 style="font-weight: bold; font-style: oblique; text-align: center; margin-top: -3%">Mini-Hackathon Event</h4>
+            <div class="twelve columns">
+                <h1 style="font-size: 5.8rem; text-align: center">Machine Learning Workshop</h1>
+                <h4 style="font-weight: bold; font-style: oblique; text-align: center; margin-top: -3%">ML Intro ~ Sklearn Workshop ~ Tensorflow Demo</h4>
             </div>
         </div>
     </div>
@@ -72,47 +72,11 @@
 <div class="row">
 <div class="twelve columns" style="margin-top: 3%">
 <h2 style="text-align: center">Overview</h2>
-<h3>Schedule</h3>
-<p>Welcome to HackEmory's first mini-hack event of the spring semester. Based on
-     popular request, today we'll be focusing on blockchain and its various
-     applications. Safa will be giving the main workshop presentation on blockchain,
-     you can follow along with the slides here:</p>
+<h3>Presentation</h3>
+<p>Welcome to HackEmory's first machine learning workshop of the semester. You can follow along with the slides here:</p>
      <div style="text-align: center">
          <a class="button" href="https://docs.google.com/presentation/d/1JfCYzZlsY9mDQV9RYZOtnarbtfqpxQDoepR4JPl2n0U/edit#slide=id.g32135e5a5e_0_148">Go to Slides</a>
      </div>
-<p style="margin-top: 2%">Here's the approximate schedule planned for the day:</p>
-<div class="cal">
-    <table class="u-full-width">
-        <thead>
-          <tr>
-            <th>TIME</th>
-            <th>DESCRIPTION</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td>10:00am – 10:30am</td>
-              <td>Registration & Coffee</td>
-            </tr>
-            <tr>
-              <td>10:30am – 12:00pm</td>
-              <td>Blockchain Workshop</td>
-            </tr>
-            <tr>
-              <td>12:00pm – 12:30pm</td>
-              <td>Lunch</td>
-            </tr>
-            <tr>
-              <td>12:30pm –  4:00pm</td>
-              <td>Hacking</td>
-            </tr>
-            <tr>
-              <td>4:00pm - 4:30pm</td>
-              <td>Judging & Prizes</td>
-            </tr>
-        </tbody>
-  </table>
-</div>
 </div>
 </div>
 </div>
@@ -122,366 +86,79 @@
 <div class="container" id="#demos">
 <div class="row">
 <div class="twelve columns" style="margin-top: 3%">
-<h2 style="text-align: center">Blockchain Demos</h2>
-<h3>Trivial Python Blockchain</h3>
-<p>Here is a very basic blockain setup in Python, from Gerald Nash's Medium article.
-    Check out the full post here<a href="https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b"> here</a>.</p>
+<h2 style="text-align: center">Scikit-Learn Samples</h2>
+<h3>simulate_data.py</h3>
 <pre><code>
-    import hashlib as hasher
-    import datetime as date
+  import numpy as np
+  import pandas as pd
+  import matplotlib.pyplot as plt
 
-    # Define what a coin block is
-    class Block:
-      def __init__(self, index, timestamp, data, previous_hash):
-        self.index = index
-        self.timestamp = timestamp
-        self.data = data
-        self.previous_hash = previous_hash
-        self.hash = self.hash_block()
 
-      def hash_block(self):
-        sha = hasher.sha256()
-        sha.update(str(self.index) + str(self.timestamp) +
-        str(self.data) + str(self.previous_hash))
-        return sha.hexdigest()
+  class Create:
+      def uniform_correlated(self):
+          x_one = np.random.uniform(-0.65, -0.1)
+          x_two = np.random.uniform(30, 70)
+          y_one = np.random.uniform(0.1, 0.45)
+          y_two = np.random.uniform(30, 70)
 
-    # Generate genesis block
-    def create_genesis_block():
-      # Manually construct a block with
-      # index zero and arbitrary previous hash
-      return Block(0, date.datetime.now(), "Genesis Block", "0")
+          # xx = np.array([-0.51, 51.2])
+          # yy = np.array([0.33, 51.6])
+          xx = np.array([x_one, x_two])
+          yy = np.array([y_one, y_two])
 
-    # Generate all later blocks in the blockchain
-    def next_block(last_block):
-      this_index = last_block.index + 1
-      this_timestamp = date.datetime.now()
-      this_data = "Hey! I'm block " + str(this_index)
-      this_hash = last_block.hash
-      return Block(this_index, this_timestamp, this_data, this_hash)
+          means = [xx.mean(), yy.mean()]
+          stds = [xx.std() / 3, yy.std() / 3]
+          corr = 0.8  # correlation
+          covs = [[stds[0] ** 2, stds[0] * stds[1] * corr],
+                  [stds[0] * stds[1] * corr, stds[1] ** 2]]
 
-    # Create the blockchain and add the genesis block
-    blockchain = [create_genesis_block()]
-    previous_block = blockchain[0]
+          m = np.random.multivariate_normal(means, covs, 1000).T
+          plt.scatter(m[0], m[1])
+          plt.show()
+          df = pd.DataFrame(m)
+          return df
 
-    # How many blocks should we add to the chain
-    # after the genesis block
-    num_of_blocks_to_add = 20
 
-    # Add blocks to the chain
-    for i in range(0, num_of_blocks_to_add):
-      block_to_add = next_block(previous_block)
-      blockchain.append(block_to_add)
-      previous_block = block_to_add
-      # Tell everyone about it!
-      print "Block #{} has been added".format(block_to_add.index)
-      print "Hash: {}\n".format(block_to_add.hash)
 </code></pre>
 </div>
 </div>
 
 
-<h3>Technical Python Blockchain</h3>
-<p>This is slightly more technical than the version above, from Hackernoon.
-    Check out the full post<a href="https://hackernoon.com/learn-blockchains-by-building-one-117428612f46"> here</a>.</p>
+<h3>lin_reg.py</h3>
 <pre><code>
-    import hashlib
-    import json
-    from time import time
-    from urllib.parse import urlparse
-    from uuid import uuid4
-
-    import requests
-    from flask import Flask, jsonify, request
+  import numpy as np
+  import pandas as pd
+  import seaborn as sb
+  import statsmodels.api as sm
+  import matplotlib.pyplot as plt
+  from simulate_data import Create
 
 
-    class Blockchain:
-        def __init__(self):
-            self.current_transactions = []
-            self.chain = []
-            self.nodes = set()
+  class ModelType:
+      # Returns an Ordinary Least Squares regression analysis of 2 variables,
+      # and probability distribution functions of the variables
+      class LinReg:
+          def linear_regression(self, df):
+              frame = df
+              x, y = frame[0], frame[1]
 
-            # Create the genesis block
-            self.new_block(previous_hash='1', proof=100)
-
-        def register_node(self, address):
-            """
-            Add a new node to the list of nodes
-            :param address: Address of node. Eg. 'http://192.168.0.5:5000'
-            """
-
-            parsed_url = urlparse(address)
-            if parsed_url.netloc:
-                self.nodes.add(parsed_url.netloc)
-            elif parsed_url.path:
-                # Accepts an URL without scheme like '192.168.0.5:5000'.
-                self.nodes.add(parsed_url.path)
-            else:
-                raise ValueError('Invalid URL')
+              model = sm.OLS(y, x).fit()
+              # predict = model.predict(x)
+              # print(predict)
+              print(model.summary())
+              # print(isinstance(x, datetime.date))
+              # print(frame.columns.values)
+              sb.set(color_codes=True)
+              sb.distplot(x)
+              plt.show()
+              sb.distplot(y)
+              plt.show()
 
 
-        def valid_chain(self, chain):
-            """
-            Determine if a given blockchain is valid
-            :param chain: A blockchain
-            :return: True if valid, False if not
-            """
-
-            last_block = chain[0]
-            current_index = 1
-
-            while current_index < len(chain):
-                block = chain[current_index]
-                print(f'{last_block}')
-                print(f'{block}')
-                print("\n-----------\n")
-                # Check that the hash of the block is correct
-                if block['previous_hash'] != self.hash(last_block):
-                    return False
-
-                # Check that the Proof of Work is correct
-                if not self.valid_proof(last_block['proof'], block['proof'], last_block['previous_hash']):
-                    return False
-
-                last_block = block
-                current_index += 1
-
-            return True
-
-        def resolve_conflicts(self):
-            """
-            This is our consensus algorithm, it resolves conflicts
-            by replacing our chain with the longest one in the network.
-            :return: True if our chain was replaced, False if not
-            """
-
-            neighbours = self.nodes
-            new_chain = None
-
-            # We're only looking for chains longer than ours
-            max_length = len(self.chain)
-
-            # Grab and verify the chains from all the nodes in our network
-            for node in neighbours:
-                response = requests.get(f'http://{node}/chain')
-
-                if response.status_code == 200:
-                    length = response.json()['length']
-                    chain = response.json()['chain']
-
-                    # Check if the length is longer and the chain is valid
-                    if length > max_length and self.valid_chain(chain):
-                        max_length = length
-                        new_chain = chain
-
-            # Replace our chain if we discovered a new, valid chain longer than ours
-            if new_chain:
-                self.chain = new_chain
-                return True
-
-            return False
-
-        def new_block(self, proof, previous_hash):
-            """
-            Create a new Block in the Blockchain
-            :param proof: The proof given by the Proof of Work algorithm
-            :param previous_hash: Hash of previous Block
-            :return: New Block
-            """
-
-            block = {
-                'index': len(self.chain) + 1,
-                'timestamp': time(),
-                'transactions': self.current_transactions,
-                'proof': proof,
-                'previous_hash': previous_hash or self.hash(self.chain[-1]),
-            }
-
-            # Reset the current list of transactions
-            self.current_transactions = []
-
-            self.chain.append(block)
-            return block
-
-        def new_transaction(self, sender, recipient, amount):
-            """
-            Creates a new transaction to go into the next mined Block
-            :param sender: Address of the Sender
-            :param recipient: Address of the Recipient
-            :param amount: Amount
-            :return: The index of the Block that will hold this transaction
-            """
-            self.current_transactions.append({
-                'sender': sender,
-                'recipient': recipient,
-                'amount': amount,
-            })
-
-            return self.last_block['index'] + 1
-
-        @property
-        def last_block(self):
-            return self.chain[-1]
-
-        @staticmethod
-        def hash(block):
-            """
-            Creates a SHA-256 hash of a Block
-            :param block: Block
-            """
-
-            # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
-            block_string = json.dumps(block, sort_keys=True).encode()
-            return hashlib.sha256(block_string).hexdigest()
-
-        def proof_of_work(self, last_block):
-            """
-            Simple Proof of Work Algorithm:
-             - Find a number p' such that hash(pp') contains leading 4 zeroes
-             - Where p is the previous proof, and p' is the new proof
-
-            :param last_block: <dict> last Block
-            :return: <int>
-            """
-
-            last_proof = last_block['proof']
-            last_hash = self.hash(last_block)
-
-            proof = 0
-            while self.valid_proof(last_proof, proof, last_hash) is False:
-                proof += 1
-
-            return proof
-
-        @staticmethod
-        def valid_proof(last_proof, proof, last_hash):
-            """
-            Validates the Proof
-            :param last_proof: <int> Previous Proof
-            :param proof: <int> Current Proof
-            :param last_hash: <str> The hash of the Previous Block
-            :return: <bool> True if correct, False if not.
-            """
-
-            guess = f'{last_proof}{proof}{last_hash}'.encode()
-            guess_hash = hashlib.sha256(guess).hexdigest()
-            return guess_hash[:4] == "0000"
+  new = Create().uniform_correlated()
+  ModelType().LinReg().linear_regression(new)
 </code></pre>
-
-<h3>Flask Application</h3>
-<p>Here is a quick implementation using Flask, courtesy of Safa.</p>
-<code><pre>
-    # Instantiate the Node
-    app = Flask(__name__)
-
-    # Generate a globally unique address for this node
-    node_identifier = str(uuid4()).replace('-', '')
-
-    # Instantiate the Blockchain
-    blockchain = Blockchain()
-
-
-    @app.route('/mine', methods=['GET'])
-    def mine():
-        # We run the proof of work algorithm to get the next proof...
-        last_block = blockchain.last_block
-        proof = blockchain.proof_of_work(last_block)
-
-        # We must receive a reward for finding the proof.
-        # The sender is "0" to signify that this node has mined a new coin.
-        blockchain.new_transaction(
-            sender="0",
-            recipient=node_identifier,
-            amount=1,
-        )
-
-        # Forge the new Block by adding it to the chain
-        previous_hash = blockchain.hash(last_block)
-        block = blockchain.new_block(proof, previous_hash)
-
-        response = {
-            'message': "New Block Forged",
-            'index': block['index'],
-            'transactions': block['transactions'],
-            'proof': block['proof'],
-            'previous_hash': block['previous_hash'],
-        }
-        return jsonify(response), 200
-
-
-    @app.route('/transactions/new', methods=['POST'])
-    def new_transaction():
-        values = request.get_json()
-
-        # Check that the required fields are in the POST'ed data
-        required = ['sender', 'recipient', 'amount']
-        if not all(k in values for k in required):
-            return 'Missing values', 400
-
-        # Create a new Transaction
-        index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
-
-        response = {'message': f'Transaction will be added to Block {index}'}
-        return jsonify(response), 201
-
-
-    @app.route('/chain', methods=['GET'])
-    def full_chain():
-        response = {
-            'chain': blockchain.chain,
-            'length': len(blockchain.chain),
-        }
-        return jsonify(response), 200
-
-
-    @app.route('/nodes/register', methods=['POST'])
-    def register_nodes():
-        values = request.get_json()
-
-        nodes = values.get('nodes')
-        if nodes is None:
-            return "Error: Please supply a valid list of nodes", 400
-
-        for node in nodes:
-            blockchain.register_node(node)
-
-        response = {
-            'message': 'New nodes have been added',
-            'total_nodes': list(blockchain.nodes),
-        }
-        return jsonify(response), 201
-
-
-    @app.route('/nodes/resolve', methods=['GET'])
-    def consensus():
-        replaced = blockchain.resolve_conflicts()
-
-        if replaced:
-            response = {
-                'message': 'Our chain was replaced',
-                'new_chain': blockchain.chain
-            }
-        else:
-            response = {
-                'message': 'Our chain is authoritative',
-                'chain': blockchain.chain
-            }
-
-        return jsonify(response), 200
-
-
-    if __name__ == '__main__':
-        from argparse import ArgumentParser
-
-        parser = ArgumentParser()
-        parser.add_argument('-p', '--port', default=5000, type=int, help='port to listen on')
-        args = parser.parse_args()
-        port = args.port
-
-        app.run(host='0.0.0.0', port=port)
-</code></pre>
-
 </div>
-
 
 
 <div class="container" id="#resources">
@@ -500,42 +177,9 @@
 <p><a href="https://bitvol.info/">Here</a>
     is a website that tracks market info on bitcoin.</p>
 
-<h3>Development</h3>
-<p><a href="https://getbootstrap.com/">Bootstrap</a>
-    has a lot of features for web development out of the box if you want
-     to build a web interface for your project.</p>
-<p><a href="http://getskeleton.com/">Skeleton.css</a>
-     is an extremely barebones HTML/CSS boilerplate if you care about file size.
-      This website was build on Skeleton.</p>
-<p><a href="https://www.jetbrains.com/pycharm/">PyCharm</a>
-      is an IDE for Python development.</p>
-
 </div>
 </div>
 </div>
-
-
-
-    <!-- <div class="tiles">
-        <div class="row">
-            <div class="six columns" style="border-right: 5px solid #e9edee; background-color: #dbffff">
-                <h1>Test Box</h1><br><br><br><br><br><br><br><br><br><br>
-            </div>
-            <div class="six columns" style="background-color: #FFB8A2; margin-left: 0%; text-align: right; width: 52%">
-                <h1>Test Box</h1><br><br><br><br><br><br><br><br><br><br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="six columns" style="border-right: 5px solid #e9edee; border-top: 5px solid #e9edee; background-color: #FFB8A2">
-                <h1>Test Box</h1><br><br><br><br><br><br><br><br><br><br>
-            </div>
-            <div class="six columns" style="background-color: #dbffff; border-top: 5px solid #e9edee; margin-left: 0%; text-align: right; width: 52%">
-                <h1>Test Box</h1><br><br><br><br><br><br><br><br><br><br>
-            </div>
-        </div>
-    </div> -->
-
-
 
 
 
